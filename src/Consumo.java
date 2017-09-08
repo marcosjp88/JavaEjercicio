@@ -4,9 +4,9 @@ public class Consumo {
 	private int cant;
 	private float importe;
 	
-	public consumo(Producto prod, int valor) {
-		producto = prod;
-		cant = valor;
-		importe = prod.valorizar(cant);
+	public Consumo(Producto prod, int valor) {
+		producto 	= prod;
+		cant 		= valor;
+		importe 	= prod.valorizar(cant);
 	}
 }
