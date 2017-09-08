@@ -6,7 +6,6 @@ public class Ticket {
 	private ArrayList<Consumo> consumos;
 	private byte nroMesa;
 	private Mozo mozo;
-	private int maxMesas;
 	private float total;
 	
 	public Ticket (int val1, byte val2, Mozo m) {
@@ -14,7 +13,6 @@ public class Ticket {
 		fecha 		= Fecha.hoy();
 		consumos 	= new ArrayList<Consumo>();
 		nroMesa 	= val2;
-		maxMesas	= 20;
 		total 		= 0;
 		mozo 		= m;
 	}
@@ -30,4 +28,5 @@ public class Ticket {
 	public boolean sosDeMesa(Mozo m) {
 		return mozo == m;
 	}
+
 }
