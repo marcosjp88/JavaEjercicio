@@ -13,4 +13,9 @@ public class Producto {
 	public float valorizar(int cant) {
 			return cant * precioUnit;
 	}
+	
+	
+	public boolean sosProducto(int codB) {
+		return codB == cod;
+	}
 }

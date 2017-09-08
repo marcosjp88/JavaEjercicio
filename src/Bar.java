@@ -125,6 +125,35 @@ public class Bar {
 		}
 	}
 	
+	public void AgregarProducto() {
+		Scanner entrada = new Scanner(System.in);
+		System.out.println("Ingrese nro de codigo");
+		int codN = entrada.nextInt();
+		Producto p = this.buscarProducto(codN);
+		if(p != null) {
+			System.out.println("Error - ese producto ya existe");
+		} else {
+			System.out.println("Ingrese el precio unitario");
+			float precioU = entrada.nextFloat();
+			System.out.println("Ingrese la Descripcion");
+			String descr = entrada.next();
+			p = new Producto(codN, descr, precioU);
+			productos.add(p);
+		}
+	}
+	
+	public Producto buscarProducto(int codP) {
+		int i = 0;
+		while((i < productos.size()) && (!productos.get(i).sosProducto(codP))) {
+			i++;
+		}
+		if(i != productos.size()) {
+			return productos.get(i);
+		} else {
+			return null;
+		}
+	}
+	
 	
 	
 	

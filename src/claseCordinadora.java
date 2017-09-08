@@ -4,7 +4,7 @@ public class claseCordinadora {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Bar a = new Bar("30-12345667-1", "El bar de enfrente");
+		Bar a = new Bar(1234, "El bar de enfrente");
 		Scanner entrada = new Scanner(System.in);
 		byte opc;
 		do
@@ -21,17 +21,17 @@ public class claseCordinadora {
 			{
 			case 1:
 			{
-				a.sumarDosNumeros();
+				a.agregarMozo();
 			}
 				break;
 			case 2:
 			{
-				a.concatenarDosStrings();
+				//
 			}
 				break;
 			case 3:
 			{
-				a.verificarSiAprobo();
+				//
 			}
 				break;
 		   default:
@@ -39,7 +39,6 @@ public class claseCordinadora {
 			}
 		}
 		while(opc != 0);
-	}
 	}
 
 }
