@@ -95,6 +95,27 @@ public class Bar {
 	}
 	
 	
+	public agregarMozo() {
+		Scanner entrada = new Scanner(System.in);
+		System.out.println("Ingrese nro de legajo");
+		int legajoNuevo = entrada.nextInt();
+		Mozo m = this.buscarMozo(legajoNuevo);
+		if(m != null) {
+			System.out.println("Error - ese mozo ya existe");
+		} else {
+			Scanner entrada = new Scanner(System.in);
+			System.out.println("Ingrese nro de dni");
+			int dni = entrada.nextInt();
+			Scanner entrada = new Scanner(System.in);
+			System.out.println("Ingrese el nombre");
+			int nombre = entrada.nextInt();
+			m = new Mozo(legajoNuevo, dni, nombre);
+			mozos.add(m);
+		}
+	
+	}
+	
+	
 	
 	
 }

@@ -10,4 +10,8 @@ public class Mozo {
 		nombre	= str;
 	}
 	
+	public sosMozo(leg) {
+		return leg == legajo;
+	}
+	
 }

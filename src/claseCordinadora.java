@@ -14,7 +14,6 @@ public class claseCordinadora {
 			System.out.println("\nIngrese la opcion que desea realizar");
 			System.out.println("\n1-> Agregar a un Mozo" +
 					"\n2-> Agregar un producto" +
-					"\n3-> Verificar Aprobacion de Examenes " +
 					"\n0->Salir.");
 			// se visualiza de a una linea pero en un solo mensaje
 			opc = entrada.nextByte();
