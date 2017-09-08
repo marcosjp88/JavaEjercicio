@@ -28,37 +28,51 @@ public class Fecha {
 		int dd,mm,aaaa;
 		boolean valida;		
 		do {
-			System.out.print("Ingrese nro de dia: ");
-			dd = entrada.nextInt();
-		} while (dd < 1 || dd > 31);
-		do {
-			System.out.print("Ingrese Año: ");
-			aaaa = entrada.nextInt();
-		} while (aaaa < 1492 || aaaa > 2100);
-		do {
-			System.out.print("Ingrese nro de mes: ");
-			mm = entrada.nextInt();
-			if(mm == 4 || mm == 6 || mm == 9 || mm == 11) {
-				if (dd == 31) {
-					valida = false;
+			do {
+				System.out.print("Ingrese nro de dia: ");
+				dd = entrada.nextInt();
+			} while (dd < 1 || dd > 31);
+			do {
+				System.out.print("Ingrese Año: ");
+				aaaa = entrada.nextInt();
+			} while (aaaa < 1492 || aaaa > 2100);
+				System.out.print("Ingrese nro de mes: ");
+				mm = entrada.nextInt();
+				if(mm == 4 || mm == 6 || mm == 9 || mm == 11) {
+					if (dd == 31) {
+						valida = false;
+					} else {
+						valida = true;
+					}
 				} else {
-					valida = true;
-				}
-			} else {
-				if (mm != 2) {
-					valida = true;
-				} else {
-					if (dd <= 28) {
+					if (mm != 2) {
 						valida = true;
 					} else {
-						if (dd >= 30) {
-							valida = false;
+						if (dd <= 28) {
+							valida = true;
+						} else {
+							if (dd >= 30) {
+								valida = false;
+							} else {
+								if(aaaa % 4 != 0) {
+									valida = false;
+								} else {
+									if(aaaa % 100 != 0) {
+										valida = true;
+									} else {
+										if(aaaa % 400 != 0) {
+											valida = false;
+										} else {
+											valida = true;
+										}
+									}
+								}
+							}
+							
+							
 						}
-						if () // if para los meses biciestos
-						
 					}
 				}
-			}
 		} while (valida == false);
 		nueva = new Fecha(dd,mm,aaaa);
 		return nueva;

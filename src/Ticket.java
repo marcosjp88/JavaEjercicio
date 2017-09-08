@@ -25,8 +25,18 @@ public class Ticket {
 		return total == 0;
 	}
 	
-	public boolean sosDeMesa(Mozo m) {
+	public boolean sosDeMozo(Mozo m) {
 		return mozo == m;
 	}
+	
+	public Fecha darFecha() {
+		return fecha;
+	}
+
+	public int darNumeroTicket() {
+		return nro;
+	}
+
+	
 
 }

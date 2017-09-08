@@ -1,4 +1,7 @@
 import java.util.Scanner;
+
+import miPaquete.Fecha;
+
 import java.util.ArrayList;
 
 public class Bar {
@@ -17,10 +20,81 @@ public class Bar {
 		maxMesas 		= 20;
 	}
 	
-	Public void abrirMesa() {
+	public void abrirMesa() {
 		Scanner entrada = new Scanner(System.in);
 		System.out.println("Ingrese nro de mesa");
 		byte nroMesa = entrada.nextByte();
-		if((nroMesa < 1) || (nroMesa > maxMesas))
+		if((nroMesa < 1) || (nroMesa > maxMesas)) {
+			System.out.println("numero de mesa erroneo");
+		} else {
+			if(this.estaAbiertoMesa(nroMesa)) {
+				System.out.println("error - Mesa ocupada");
+			} else {
+				Mozo m = this.asignarMozo();
+				if (m == null) {
+					System.out.println("Error - no hay mesas");
+				} else {
+					int nroTicket = 0;
+					if (tickets.size() > 0) {
+						nroTicket = tickets.get(tickets.size()-1).darNumeroTicket();
+					} else {
+						nroTicket++;
+						Ticket t = new Ticket(nroTicket, nroMesa, m);
+						tickets.add(t);
+					}
+				}
+			}
+			
+		}
 	}
+	
+	public Mozo asignarMozo() {
+		if(mozos.isEmpty()) {
+			return null;
+		} else {
+			Mozo menorMozo = mozos.get(0);
+			int menorMesas = this.mesasAbiertasMozo(menorMozo);
+			int cantMesas;
+			for(Mozo m:mozos) {
+				cantMesas = this.mesasAbiertasMozo(m);
+				if(cantMesas < menorMesas) {
+					menorMozo = m;
+					menorMesas = cantMesas;
+				}
+			}
+			return menorMozo;
+		}
+	}
+	
+	public int mesasAbiertasMozo(Mozo m) {
+		int cantMesasAbiertas = 0;
+		int i = tickets.size() - 1;
+		while((i >= 0 && (tickets.get(i).darFecha().esIgualA(Fecha.hoy())))) {
+			if((tickets.get(i).sosDeMozo(m)) && (tickets.get(i).estaAbierto())) {
+				cantMesasAbiertas++;
+			}
+			i--;
+		}
+		return cantMesasAbiertas;
+	}
+	
+	public boolean estaAbiertoMesa(byte nro) {
+		if (tickets.isEmpty()) {
+			return false;
+		} else {
+			int i = tickets.size() - 1;
+			while((i >= 0) && (tickets.get(i).sosMesa(nro))) {
+				i--;
+			}
+			if(i >= 0) {
+				return tickets.get(i).estaAbierto();
+			} else {
+				return false;
+			}
+		}
+	}
+	
+	
+	
+	
 }
