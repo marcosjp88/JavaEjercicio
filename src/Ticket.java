@@ -36,7 +36,12 @@ public class Ticket {
 	public int darNumeroTicket() {
 		return nro;
 	}
-
+	
+	
+	public void agregarConsumo(Consumo cons) {
+		consumos.add(cons);
+	}
+	
 	
 
 }

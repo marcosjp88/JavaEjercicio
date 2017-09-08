@@ -7,6 +7,6 @@ public class Consumo {
 	public Consumo(Producto prod, int valor) {
 		producto 	= prod;
 		cant 		= valor;
-		importe 	= prod.valorizar(cant);
+		importe = prod.valorizar(cant);
 	}
 }

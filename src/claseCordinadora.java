@@ -14,6 +14,10 @@ public class claseCordinadora {
 			System.out.println("\nIngrese la opcion que desea realizar");
 			System.out.println("\n1-> Agregar a un Mozo" +
 					"\n2-> Agregar un producto" +
+					"\n3-> abrir una mesa" +
+					"\n4-> Agregar consumo a una mesa" +
+					"\n5-> abrir una mesa" +
+					"\n6-> abrir una mesa" +
 					"\n0->Salir.");
 			// se visualiza de a una linea pero en un solo mensaje
 			opc = entrada.nextByte();
@@ -26,12 +30,12 @@ public class claseCordinadora {
 				break;
 			case 2:
 			{
-				//
+				a.AgregarProducto();
 			}
 				break;
 			case 3:
 			{
-				//
+				a.abrirMesa(); 
 			}
 				break;
 		   default:

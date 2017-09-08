@@ -95,6 +95,7 @@ public class Bar {
 	}
 	
 	
+	
 	public void agregarMozo() {
 		Scanner entrada = new Scanner(System.in);
 		System.out.println("Ingrese nro de legajo");
@@ -153,8 +154,33 @@ public class Bar {
 			return null;
 		}
 	}
+
 	
+	public void agregarConsumo() {
+		Scanner entrada = new Scanner(System.in);
+		System.out.println("Ingrese nro de mesa");
+		byte nroMesa = entrada.nextByte();
+		Ticket m = this.buscarTicket(nroMesa);
+		if(m == null) {
+			System.out.println("la mesa es incorrecta");
+		} else {
+			System.out.println("Ingrese el codigo de producto");
+			int codN = entrada.nextInt();
+			Producto p = this.buscarProducto(codN);
+			if(p == null) {
+				System.out.println("Error el producto no indicado");
+			} else {
+				System.out.println("Ingrese la cantidad");
+				int cant = entrada.nextInt();
+				Consumo c = new Consumo(p,cant);
+				m.agregarConsumo(c);
+			}
+		}
+	}
 	
+	public Ticket buscarTicket(int nroMesa) {
+		
+	}
 	
 	
 	
