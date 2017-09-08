@@ -10,7 +10,7 @@ public class Mozo {
 		nombre	= str;
 	}
 	
-	public sosMozo(leg) {
+	public boolean sosMozo(int leg) {
 		return leg == legajo;
 	}
 	
