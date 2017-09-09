@@ -26,7 +26,8 @@ public class Bar {
 		byte nroMesa = entrada.nextByte();
 		if((nroMesa < 1) || (nroMesa > maxMesas)) {
 			System.out.println("numero de mesa erroneo");
-		} else {
+		} 
+		else {
 			if(this.estaAbiertoMesa(nroMesa)) {
 				System.out.println("error - Mesa ocupada");
 			} else {
@@ -160,25 +161,53 @@ public class Bar {
 		Scanner entrada = new Scanner(System.in);
 		System.out.println("Ingrese nro de mesa");
 		byte nroMesa = entrada.nextByte();
-		Ticket m = this.buscarTicket(nroMesa);
-		if(m == null) {
-			System.out.println("la mesa es incorrecta");
+		if((nroMesa < 1) || (nroMesa > maxMesas)) {
+			System.out.println("numero de mesa erroneo");
 		} else {
-			System.out.println("Ingrese el codigo de producto");
-			int codN = entrada.nextInt();
-			Producto p = this.buscarProducto(codN);
-			if(p == null) {
-				System.out.println("Error el producto no indicado");
+			int i = tickets.size() - 1;
+			while((i >= 0) && (!tickets.get(i).verificaEstadoMesa(nroMesa))) {
+				i--;
+			}
+			if(i < 0) {
+				System.out.println("error - Mesa cerrada");
 			} else {
-				System.out.println("Ingrese la cantidad");
-				int cant = entrada.nextInt();
-				Consumo c = new Consumo(p,cant);
-				m.agregarConsumo(c);
+				Ticket t = tickets.get(i);   
+				System.out.println("Ingrese el codigo de producto");
+				int codN = entrada.nextInt();
+				Producto p = this.buscarProducto(codN);
+				if(p == null) 
+					{
+						System.out.println("Error el producto no indicado");
+					} 
+				else 
+				{
+					System.out.println("Ingrese la cantidad");
+					int cant = entrada.nextInt();
+					Consumo c = new Consumo(p,cant);
+					t.agregarConsumo(c);
+				}
 			}
 		}
 	}
-	
-	public Ticket buscarTicket(int nroMesa) {
+		public void emitirTicket() {
+			Scanner entrada = new Scanner(System.in);
+			System.out.println("Ingrese nro de mesa");
+			byte nroMesa = entrada.nextByte();
+			if((nroMesa < 1) || (nroMesa > maxMesas)) {
+				System.out.println("numero de mesa erroneo");
+			} else {
+				int i = tickets.size() - 1;
+				while((i >= 0) && (!tickets.get(i).verificaEstadoMesa(nroMesa))) {
+					i--;
+				}
+				if(i < 0) {
+					System.out.println("error - Mesa cerrada");
+				} else {
+					Ticket t = tickets.get(i);
+					t.emitirse();
+				}
+		}
+		
 		
 	}
 	

@@ -25,6 +25,9 @@ public class Ticket {
 		return total == 0;
 	}
 	
+	public boolean verificaEstadoMesa(byte nro) {
+		return (total == 0 && nro == nroMesa);
+	}
 	public boolean sosDeMozo(Mozo m) {
 		return mozo == m;
 	}
@@ -42,6 +45,17 @@ public class Ticket {
 		consumos.add(cons);
 	}
 	
+	public void emitirse() {
+		System.out.println("Consumos de la mesa: " + nroMesa);
+		for(Consumo c: consumos) {
+			total = total + c.darCosto();
+			c.mostrarse();
+			//c.mostrarTotal();
+		}
+		System.out.println("El total es : " + total);
+		System.out.println("El mozo que atendio la mesa fue: " + mozo.darNombre());
+		
+	}
 	
 
 }

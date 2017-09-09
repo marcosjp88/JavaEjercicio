@@ -16,8 +16,7 @@ public class claseCordinadora {
 					"\n2-> Agregar un producto" +
 					"\n3-> abrir una mesa" +
 					"\n4-> Agregar consumo a una mesa" +
-					"\n5-> abrir una mesa" +
-					"\n6-> abrir una mesa" +
+					"\n5-> Emitir ticket" +
 					"\n0->Salir.");
 			// se visualiza de a una linea pero en un solo mensaje
 			opc = entrada.nextByte();
@@ -38,6 +37,17 @@ public class claseCordinadora {
 				a.abrirMesa(); 
 			}
 				break;
+			case 4:
+			{
+				a.agregarConsumo(); 
+			}
+				break;	
+			case 5:
+			{
+				a.emitirTicket(); 
+			}
+				break;	
+					
 		   default:
 				break;
 			}

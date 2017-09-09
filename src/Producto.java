@@ -1,4 +1,4 @@
-
+import java.util.Scanner;
 public class Producto {
 	private int cod;
 	private String descripcion;
@@ -18,4 +18,13 @@ public class Producto {
 	public boolean sosProducto(int codB) {
 		return codB == cod;
 	}
+	
+	public void mostrarDescripcion() {
+		System.out.print("El producto: " + descripcion);
+	}
+	
+	public void mostrarPrecioUnitario() {
+		System.out.print(" el precio u es: " + precioUnit);
+	}
+	
 }

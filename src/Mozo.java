@@ -13,5 +13,9 @@ public class Mozo {
 	public boolean sosMozo(int leg) {
 		return leg == legajo;
 	}
+
+	public String darNombre() {
+		return nombre;
+	}
 	
 }
